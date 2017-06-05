@@ -20,4 +20,23 @@ module.exports = function dependencies(input){
       });
     }
   });
+  //now to loop through the undetermined packages
+  while(packagesdepend.length > 0) {
+    //checking if theres a found dependency package
+    var packagesdependcheck = packagesdepend.length;
+    //if dependencies present in packagesdependcheck, push into packages array and remove from packagesdepend array
+    if (packages.indexOf(packagesdepend.dependency) >= 0){
+      packages.push(packagesdepend.package);
+      assert.splice(index, 1);
+    };
+
+    //if there were no found packages in this iteration, return false
+    if(packagesdepend.length == packagesdependcheck){
+      return false;
+    }
+  };
+  //returns packages into packages array and rejoins the dependencies
+  return packages.join(", ")
 };
+
+// console.log(dependencies(['KittenService: ','Leetmeme: Cyberportal','Cyberportal: Ice','CamelCaser: KittenService','Fraudstream: Leetmeme','Ice: ']))

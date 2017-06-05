@@ -42,6 +42,19 @@ describe('dependencies()', function(){
     it("should have length of 4", function(){
       packagesdepend = ['Leetmeme: Cyberportal','Cyberportal: Ice','CamelCaser:KittenService','Fraudstream: Leetmeme']
       expect(packagesdepend).to.have.length(4);
-    })
-  })
+    });
+  });
+  it('will then sort through unresolved packages',
+  function(){
+    [
+      'Leetmeme: Cyberportal',
+      'Cyberportal: Ice',
+      'CamelCaser:KittenService',
+      'Fraudstream: Leetmeme',
+    ].forEach(function (packagesdepend){
+      var packagesdependcheck = packagesdepend;
+    expect(packagesdependcheck).to.include(['Leetmeme: Cyberportal','Cyberportal: Ice','CamelCaser:KittenService',
+    'Fraudstream: Leetmeme']);
+    });
+  });
 });

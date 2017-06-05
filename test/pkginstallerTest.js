@@ -6,11 +6,17 @@ const assert = require('chai').assert;
 const pkginstaller = require('../pkginstaller');
 
 
-describe('Pkginstaller', function(){
-  it("should run tests", function(){
-    expect(true).to.be.true
+describe('dependencies()', function(){
+  describe('Array', function(){
+    it('should be an empty array', function(){
+      var packages = [];
+      assert.equal(packages.length, 0);
+    });
   });
-  it('pkginstaller should return hello', function(){
-    assert.equal(pkginstaller(), 'hello');
+  describe('Array', function(){
+    it('should be an empty array', function(){
+      var packagesdepend = [];
+      assert.equal(packagesdepend.length, 0);
+    });
   });
 });

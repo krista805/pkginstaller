@@ -19,4 +19,29 @@ describe('dependencies()', function(){
       assert.equal(packagesdepend.length, 0);
     });
   });
+  it('will separate packages with and without dependencies', function(){
+    var count = 0;
+    [
+      'KittenService: ',
+      'Leetmeme: Cyberportal',
+      'Cyberportal: Ice',
+      'CamelCaser:KittenService',
+      'Fraudstream: Leetmeme',
+      'Ice: '
+    ].forEach(function (package, array){
+      assert.input = package;
+    });
+  });
+  describe('packages', function(){
+    it("should have length of 2", function(){
+      packages = ['KittenService: ', 'Ice: ']
+      expect(packages).to.have.length(2);
+    });
+  });
+  describe('packagesdepend', function(){
+    it("should have length of 4", function(){
+      packagesdepend = ['Leetmeme: Cyberportal','Cyberportal: Ice','CamelCaser:KittenService','Fraudstream: Leetmeme']
+      expect(packagesdepend).to.have.length(4);
+    })
+  })
 });
